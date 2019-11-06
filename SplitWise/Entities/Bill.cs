@@ -24,7 +24,7 @@ namespace SplitWise.Entities
             paidBy.UpdateSettlementAmount(billAmount);
             foreach (var friend in friendsIncluded)
             {
-                friend.UpdateSettlementAmount(-1 * eachOneShare);
+                friend.UpdateSettlementAmount(Constants.Constants.Negate * eachOneShare);
             }
         }
     }

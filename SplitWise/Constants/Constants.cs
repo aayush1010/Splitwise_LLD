@@ -6,5 +6,6 @@
         public const string FriendDataFilePath = "FriendDataFilePath";
         public const char Splitter = ',';
         public const char FriendsIncludeSplitter = '.';
+        public const int Negate = -1;
     }
 }
