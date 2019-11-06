@@ -1,10 +1,20 @@
-﻿namespace SplitWise.Entities
+﻿using System;
+using static SplitWise.Constants.Enums;
+
+namespace SplitWise.Entities
 {
     class Friend
     {
         public readonly int id;
         private readonly string name;
-        private int settlementAmount;
+        private double settlementAmount;
+        private SettlementType settlementType
+        {
+            get
+            {
+                return settlementAmount < default(double) ? SettlementType.give : SettlementType.gets;
+            }
+        }
 
         public Friend(int id, string name)
         {
@@ -18,14 +28,14 @@
             return new Friend(id, name);
         }
 
-        public void UpdateSettlementAmount(int amount)
+        public void UpdateSettlementAmount(double amount)
         {
-
+            this.settlementAmount += amount;
         }
         
-        public int GetBalance()
+        public void ShowBalanceDetails()
         {
-            return this.settlementAmount;
+            Console.WriteLine(name + " " + Enum.GetName(typeof(SettlementType), settlementType) + " " + Math.Abs(settlementAmount));
         }
     }
 }

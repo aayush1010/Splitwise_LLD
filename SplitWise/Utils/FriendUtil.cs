@@ -16,5 +16,13 @@ namespace SplitWise.Utils
         {
             return new Friend(Convert.ToInt32(friendDetails[0]), friendDetails[1]);
         }
+
+        public void ShowSettlementAmount(List<Friend> friends)
+        {
+            foreach (var friend in friends)
+            {
+                friend.ShowBalanceDetails();
+            }
+        }
     }
 }

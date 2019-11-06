@@ -1,4 +1,5 @@
 ﻿using SplitWise.Utils;
+using System;
 
 namespace SplitWise
 {
@@ -7,7 +8,12 @@ namespace SplitWise
         static void Main(string[] args)
         {
             Reader reader = new Reader();
-            reader.ReadFile();
+            var readerDto = reader.ReadFile();
+            BillUtil billUtil = new BillUtil();
+            billUtil.SettleBills(readerDto.Bills);
+            FriendUtil friendUtil = new FriendUtil();
+            friendUtil.ShowSettlementAmount(readerDto.Friends);
+            Console.ReadLine();
         }
     }
 }

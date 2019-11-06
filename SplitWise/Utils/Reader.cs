@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using SplitWise.Entities;
 using System;
+using SplitWise.DTO;
 
 namespace SplitWise.Utils
 {
@@ -26,10 +27,11 @@ namespace SplitWise.Utils
             friendDataFilePath = ConfigurationSettings.AppSettings[Constants.Constants.FriendDataFilePath];
         }
 
-        public void ReadFile()
+        public ReaderDTO ReadFile()
         {
             ReadFriendDetails();
             ReadBillDetails();
+            return new ReaderDTO { Bills = bills, Friends = friends };
         }
 
         private void ReadFriendDetails()

@@ -17,7 +17,7 @@ namespace SplitWise.Utils
         public Bill GenerateBill(string[] billDetails, List<Friend> friends)
         {
             var paidByFriendId = Convert.ToInt32(billDetails[0]);
-            var billAmount = Convert.ToInt32(billDetails[1]);
+            var billAmount = Convert.ToDouble(billDetails[1]);
             var spentOn = billDetails[2];
             var friendsIncludedIds = billDetails[3].Split(Constants.Constants.FriendsIncludeSplitter).Select(Int32.Parse).ToList();
             var paidBy = friendUtil.GetFriend(friends, paidByFriendId);
@@ -29,8 +29,12 @@ namespace SplitWise.Utils
             return new Bill(paidBy, billAmount, spentOn, friendsIncluded);
         }
 
-        public void SettleBill()
+        public void SettleBills(List<Bill> bills)
         {
+            foreach (var bill in bills)
+            {
+                bill.SettleBill();
+            }
         }
     }
 }
