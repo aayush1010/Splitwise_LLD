@@ -23,11 +23,6 @@ namespace SplitWise.Entities
             this.settlementAmount = 0;
         }
 
-        public Friend CreateFriend(int id, string name)
-        {
-            return new Friend(id, name);
-        }
-
         public void UpdateSettlementAmount(double amount)
         {
             this.settlementAmount += amount;
