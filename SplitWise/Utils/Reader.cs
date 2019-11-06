@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using SplitWise.Entities;
-using System;
 using SplitWise.DTO;
 
 namespace SplitWise.Utils
