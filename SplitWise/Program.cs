@@ -9,10 +9,8 @@ namespace SplitWise
         {
             Reader reader = new Reader();
             var readerDto = reader.ReadFile();
-            BillUtil billUtil = new BillUtil();
-            billUtil.SettleBills(readerDto.Bills);
-            FriendUtil friendUtil = new FriendUtil();
-            friendUtil.ShowSettlementAmount(readerDto.Friends);
+            BillUtil.SettleBills(readerDto.Bills);
+            FriendUtil.ShowSettlementAmount(readerDto.Friends);
             Console.ReadLine();
         }
     }

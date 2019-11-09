@@ -8,8 +8,6 @@ namespace SplitWise.Utils
 {
     class Reader
     {
-        private readonly FriendUtil friendUtil;
-        private readonly BillUtil billUtil;
         private readonly string billDataFilePath;
         private readonly string friendDataFilePath;
         private List<Friend> friends;
@@ -20,8 +18,6 @@ namespace SplitWise.Utils
         {
             friends = new List<Friend>();
             bills = new List<Bill>();
-            friendUtil = new FriendUtil();
-            billUtil = new BillUtil();
             billDataFilePath = ConfigurationSettings.AppSettings[Constants.Constants.BillDataFilePath];
             friendDataFilePath = ConfigurationSettings.AppSettings[Constants.Constants.FriendDataFilePath];
         }
@@ -41,7 +37,7 @@ namespace SplitWise.Utils
                 {
                     var line = reader.ReadLine();
                     var friendDetails = line.Split(Constants.Constants.Splitter);
-                    friends.Add(friendUtil.GenerateFriend(friendDetails));
+                    friends.Add(FriendUtil.GenerateFriend(friendDetails));
                 }
             }
         }
@@ -54,7 +50,7 @@ namespace SplitWise.Utils
                 {
                     var line = reader.ReadLine();
                     var billDetails = line.Split(Constants.Constants.Splitter);
-                    bills.Add(billUtil.GenerateBill(billDetails, friends));
+                    bills.Add(BillUtil.GenerateBill(billDetails, friends));
                 }
             }
         }

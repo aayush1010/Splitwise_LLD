@@ -20,7 +20,7 @@ namespace SplitWise.Entities
         {
             this.id = id;
             this.name = name;
-            this.settlementAmount = 0;
+            this.settlementAmount = default(double);
         }
 
         public void UpdateSettlementAmount(double amount)
